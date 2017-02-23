@@ -1,0 +1,8 @@
+#!/bin/bash 
+
+for ((i = 1; i <= 5; i++)); do
+    echo $i
+    python preprocessSentences.py -p . -c $i -b 100 -t train
+    python preprocessSentences.py -p . -t test -v out_vocab_5.txt -o 
+    python tutorial.py
+done

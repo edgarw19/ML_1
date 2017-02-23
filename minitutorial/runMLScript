@@ -1,0 +1,19 @@
+#!/bin/bash 
+
+for ((i = 1; i <= 2; i++)); do
+	for ((j = 1; j <= 2; j++)); do
+	    echo $i
+	    file="out_vocab_$i.txt"
+	    echo $file
+	    echo "WORD COUNT THRESHOLD: $i"
+	    echo "BIGRAM COUNT THRESHOD: $j"
+	    python preprocessSentences.py -p . -c $i -b $j -t train
+
+		python preprocessSentences.py -p . -t test -v $file -o test
+		python tutorial.py -c $i
+		echo " "
+		echo "***********************"
+		echo " "
+		echo " "
+	done
+done

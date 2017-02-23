@@ -1,0 +1,5 @@
+#!/bin/bash 
+
+python preprocessSentences.py -p . -c 5 -b 2 -t train
+python preprocessSentences.py -p . -t test -v out_vocab_5.txt
+python tutorial.py
