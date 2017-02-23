@@ -54,6 +54,11 @@ def main(argv):
 		for line in f:
 			targets.append(int(line))
 
+	sentences = []
+	with open("train.txt") as f:
+		for line in f:
+			sentences.append(line)
+
 	bag = []
 	with open("out_bag_of_words_" + str(wordThreshold) + ".csv") as f:
 		for line in f:
@@ -80,6 +85,9 @@ def main(argv):
 	clf = MultinomialNB()
 	clf.fit(bag, targets)
 	predicted = clf.predict(bag)
+	for i in range(0, len(predicted)):
+		if (predicted[i] != targets[i]):
+			print(sentences[i])
 	target_names = ["Positive", "Negative"]
 	# print("RESULTS ON TRAINING DATA")
 	print(metrics.classification_report(targets, predicted, target_names=target_names, digits=4))

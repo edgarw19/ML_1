@@ -56,7 +56,7 @@ def tokenize_corpus(path, train=True):
   porter = nltk.PorterStemmer() # also lancaster stemmer
   wnl = nltk.WordNetLemmatizer()
   stopWords = stopwords.words("english")
-  print(sort(stopWords))
+  print(stopWords)
   print("ABOVE IS STOPWORDS")
   classes = []
   samples = []

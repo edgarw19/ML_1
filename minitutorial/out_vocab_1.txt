@@ -1,5 +1,4 @@
-﻿workwell
-sci
+﻿sci
 forget
 lack
 dollar
@@ -55,7 +54,6 @@ blue
 dialogu
 sub
 microphon
-2hour
 ruthless
 neg
 asid
@@ -82,7 +80,6 @@ cardboard
 valu
 leav
 daughter
-customservic
 razr
 whine
 loos
@@ -163,7 +160,6 @@ learn
 overrid
 transcend
 prompt
-watchfilm
 edibl
 final
 skype
@@ -185,7 +181,6 @@ rather
 anoth
 song
 perhap
-greatproduct
 hot
 disappoint
 stir
@@ -201,7 +196,6 @@ wrong
 blood
 beauti
 fi
-soundqualiti
 averag
 short
 attempt
@@ -246,7 +240,6 @@ ye
 number
 break
 promis
-wasttime
 foot
 disgrac
 bread
@@ -300,7 +293,6 @@ thrown
 lousi
 ate
 angl
-neverever
 american
 subtl
 loud
@@ -395,7 +387,6 @@ chees
 build
 punish
 thoroughli
-$$
 expens
 even
 play
@@ -475,7 +466,6 @@ art
 keypad
 overwhelm
 nut
-goodthing
 light
 sex
 nun
@@ -492,7 +482,6 @@ expert
 merci
 rare
 away
-firsttime
 figur
 score
 outstand
@@ -578,14 +567,12 @@ air
 pace
 smart
 fun
-foodgood
 everyon
 pack
 timefram
 readi
 theatr
 sushi
-reallilike
 rip
 moto
 player
@@ -615,7 +602,6 @@ fairli
 moment
 refil
 opinion
-goodqualiti
 dine
 typic
 kid
@@ -626,7 +612,6 @@ eleg
 thu
 chemistri
 spent
-wouldrecommend
 bisqu
 contact
 greatest
@@ -710,7 +695,6 @@ super
 proceed
 plug
 alexand
-yearold
 materi
 delish
 curri
@@ -778,7 +762,6 @@ featur
 aerial
 classic
 jabra
-prettigood
 char
 exist
 glanc
@@ -788,7 +771,6 @@ check
 na
 tip
 actor
-onebest
 role
 tie
 smell
@@ -824,8 +806,6 @@ awesom
 teeth
 push
 serious
-greatfood
-seemovi
 edg
 skip
 wholesom
@@ -858,7 +838,6 @@ sourc
 earli
 string
 jerk
-reasonprice
 dessert
 volum
 excit
@@ -900,7 +879,6 @@ melt
 find
 cell
 â
-carcharger
 appeal
 boost
 thin
@@ -1078,10 +1056,8 @@ main
 recept
 non
 crash
-definitworth
 3
 handl
-goback
 killer
 handi
 nation
@@ -1099,7 +1075,6 @@ realist
 edit
 simpl
 revers
-filmgreat
 bachi
 exampl
 trap
@@ -1141,7 +1116,6 @@ unpredict
 card
 care
 chilli
-batteriwork
 miss
 waiter
 could
@@ -1260,7 +1234,6 @@ pair
 america
 class
 fair
-cellphone
 pathet
 gyro
 seafood
@@ -1294,14 +1267,12 @@ activ
 behind
 eat
 tape
-filmmake
 hope
 earbud
 nearli
 get
 emili
 familiar
-bluetoothheadset
 joint
 bean
 state
@@ -1338,12 +1309,10 @@ superb
 favor
 written
 wayn
-everitime
 import
 bunch
 charcoal
 bought
-feellike
 parent
 joy
 screen
@@ -1354,7 +1323,6 @@ entir
 joe
 highlight
 useless
-30minut
 come
 legit
 thumb
@@ -1376,7 +1344,6 @@ pop
 walk
 simpli
 laugh
-comeback
 respect
 turkey
 late
@@ -1388,14 +1355,12 @@ mari
 mark
 treat
 addit
-eventhough
 verizon
 tasteless
 presenc
 face
 resolut
 ray
-goodfood
 made
 togeth
 ador
@@ -1516,7 +1481,6 @@ earpiec
 sen
 home
 racial
-greatplace
 textur
 freez
 nokia
@@ -1538,7 +1502,6 @@ quit
 garbag
 worthless
 host
-realligood
 although
 fulli
 pasta
@@ -1551,7 +1514,6 @@ freedom
 documentari
 side
 issu
-highlirecommend
 intens
 stand
 act
@@ -1563,11 +1525,9 @@ tortur
 due
 warranti
 strip
-looklike
 sprint
 area
 transfer
-foodgreat
 beer
 start
 fascin
@@ -1606,7 +1566,6 @@ flip
 troubl
 warmth
 limit
-batterilife
 site
 problem
 display
@@ -1628,7 +1587,6 @@ girlfriend
 film
 fill
 cinematographi
-workgreat
 idiot
 45
 compel
@@ -1657,9 +1615,7 @@ kinda
 fresh
 experienc
 wife
-phonework
 descript
-workfine
 portion
 write
 u
