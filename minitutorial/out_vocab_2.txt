@@ -1,5 +1,6 @@
 ﻿!
 !!
+!!!
 $
 $$
 $7
@@ -151,6 +152,7 @@ beamaz
 beat
 beauti
 beback
+bebacktime
 bebest
 becall
 becom
@@ -164,6 +166,7 @@ believ
 belli
 belt
 beone
+beonefilm
 bereturn
 beright
 best
@@ -215,6 +218,7 @@ busi
 button
 buy
 buzzoverrid
+buzzoverridphone
 cabl
 cafe
 call
@@ -615,6 +619,7 @@ glanc
 glass
 go
 goback
+gobacksoon
 god
 godead
 gonna
@@ -651,8 +656,10 @@ great!
 greatactor
 greatest
 greatestfilm
+greatestfilmmade
 greatfilm
 greatfood
+greatfoodservic
 greatjob
 greatphone
 greatpictur
@@ -698,6 +705,7 @@ helpmake
 high
 highli
 highlirecommend
+highlirecommendanyon
 highqualiti
 hilari
 hill
@@ -812,6 +820,7 @@ likecharm
 likedone
 likegood
 likeloud
+likeloudoverrid
 likemovi
 likeold
 likeplace
@@ -842,6 +851,7 @@ lost
 lot
 loud
 loudbuzz
+loudbuzzconvers
 love
 lovephone
 lover
@@ -950,6 +960,7 @@ network
 never
 neverbe
 neverever
+nevereverback
 nevergo
 neverheard
 neverseen
@@ -973,6 +984,7 @@ nonework
 nonocomplaint
 nonoone
 nonoplot
+nonoplot!
 nonoproblem
 nonoreal
 nonosign
@@ -996,6 +1008,7 @@ notmake
 notmuch
 notnotbad
 notnotbe
+notnotbe!
 notnotbeliev
 notnotbother
 notnotbuy
@@ -1016,6 +1029,7 @@ notnotpleasant
 notnotpurchas
 notnotqualiti
 notnotrecommend
+notnotrecommendanyon
 notnotsay
 notnotstand
 notnotstay
@@ -1079,6 +1093,7 @@ onebig
 onecharact
 onegot
 onegreatest
+onegreatestever
 onepeopl
 onething
 onework
@@ -1095,6 +1110,7 @@ outstand
 overal
 overpr
 overridconvers
+overridconvers!
 own
 owner
 ownerrealli
@@ -1154,6 +1170,7 @@ place
 placeanyon
 placecoupl
 placedeserv
+placedeservstar
 placeeat
 placego
 placenever
@@ -1479,6 +1496,7 @@ sushiplace
 suspens
 sweet
 sweetpotato
+sweetpotatogood
 switch
 tabl
 taco
@@ -1512,6 +1530,7 @@ thinghappen
 think
 thinkbe
 thinkever
+thinkevermovi
 thinkpeopl
 thinkwe
 thinkwould
@@ -1682,13 +1701,16 @@ wonbeback
 wonbego
 wonder
 wonwonbe
+wonwonbeback
 word
 work
 workfine
 workflawlessli
 workgood
 workgreat
+workgreat!
 worklike
+worklikework
 workperfectli
 workrealli
 workwell
@@ -1709,6 +1731,9 @@ wouldhighli
 wouldmuch
 wouldn
 wouldnot
+wouldnotanyon
+wouldnotitem
+wouldnotplace
 wouldrecommend
 wow
 wrap

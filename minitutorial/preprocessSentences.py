@@ -157,11 +157,11 @@ def tokenize_corpus(path, train=True):
         tokenBigrams.append(phrase)
 
 
-    #Create Trigrams
-    # for i in range(0, len(tokens)):
-    #   if (i < len(tokens) - 3):
-    #     phrase = tokens[i] + tokens[i+1] + tokens[i+3]
-    #     tokenBigrams.append(phrase)
+    # Create Trigrams
+    for i in range(0, len(tokens)):
+      if (i < len(tokens) - 3):
+        phrase = tokens[i] + tokens[i+1] + tokens[i+3]
+        tokenBigrams.append(phrase)
 
 
     allWords = allWords + tokens
@@ -177,7 +177,7 @@ def tokenize_corpus(path, train=True):
              parts = nltk.pos_tag(text)
              word, partOfSpeech = parts[0]
              if "JJ" in partOfSpeech:
-              words[t] = words[t] + amplification
+              words[t] = words[t] + 1
              else:
               words[t] = words[t]+1
          except:
