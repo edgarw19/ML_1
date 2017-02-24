@@ -82,12 +82,12 @@ def main(argv):
 				one_bag.append(int(x))
 			test_bag.append(one_bag)
 
-	clf = MultinomialNB()
+	clf = LinearSVC()
 	clf.fit(bag, targets)
 	predicted = clf.predict(bag)
-	for i in range(0, len(predicted)):
-		if (predicted[i] != targets[i]):
-			print(sentences[i])
+	# for i in range(0, len(predicted)):
+	# 	if (predicted[i] != targets[i]):
+	# 		print(sentences[i])
 	target_names = ["Positive", "Negative"]
 	# print("RESULTS ON TRAINING DATA")
 	print(metrics.classification_report(targets, predicted, target_names=target_names, digits=4))
@@ -95,10 +95,14 @@ def main(argv):
 	# print("RESULTS ON TEST DATA")
 
 	test_predicted = clf.predict(test_bag)
-	print(metrics.classification_report(test_targets, test_predicted, target_names=target_names, digits=4))
+	# test_probability = clf.predict_proba(test_bag)
 	for i in range(0, len(test_predicted)):
 		if (test_predicted[i] != test_targets[i]):
+			print("SENTENCE")
 			print(sentences[i])
+			# print(test_probability[i])
+			print("______")
+	print(metrics.classification_report(test_targets, test_predicted, target_names=target_names, digits=4))
 
 
 if __name__ == "__main__":

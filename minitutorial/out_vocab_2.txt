@@ -175,7 +175,6 @@ bestplace
 besure
 better
 beuse
-bewar
 beyond
 big
 bigfan
@@ -203,7 +202,6 @@ breakfast
 brilliant
 bring
 broke
-brunch
 btheadset
 buck
 budget
@@ -318,7 +316,6 @@ crash
 cream
 creat
 credit
-crisp
 crowd
 crowdpleaser
 cult
@@ -349,7 +346,6 @@ definitone
 definitrecommend
 definitworth
 delici
-delici!
 delight
 delish
 deliv
@@ -478,7 +474,6 @@ exceljob
 excelproduc
 excelproduct
 excelservic
-excelsound
 except
 exchang
 excus
@@ -654,7 +649,6 @@ greatestfilm
 greatfilm
 greatfood
 greatjob
-greatphone
 greatpictur
 greatplace
 greatprice
@@ -738,7 +732,6 @@ imagin
 immedi
 import
 impress
-improv
 includ
 incred
 inde
@@ -970,7 +963,6 @@ nokia
 non
 none
 nonework
-nonocomplaint
 nonoone
 nonoplot
 nonoproblem
@@ -979,7 +971,6 @@ nonosign
 noone
 noplot
 noproblem
-noreal
 not
 notbe
 notbeliev
@@ -1060,6 +1051,7 @@ numbertwenty one
 numbertwenty three
 numbertwenty two
 numbertwo
+numberzero
 nut
 obvious
 occasion
@@ -1180,7 +1172,6 @@ polit
 poor
 poorli
 poorqualiti
-pork
 portion
 portray
 possibl
@@ -1276,7 +1267,6 @@ repeat
 replac
 rest
 restaur
-result
 return
 returnphone
 revers
@@ -1554,7 +1544,6 @@ totalwast
 touch
 toward
 town
-trash
 treat
 tremend
 treo
@@ -1695,7 +1684,6 @@ workwell
 world
 wors
 worst
-worstcustom
 worstever
 worstphone
 worstseen
