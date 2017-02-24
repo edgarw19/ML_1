@@ -112,6 +112,7 @@ def tokenize_corpus(path, train=True):
   f = open(path, 'r')
   lines = f.readlines()
   i = 0
+  amplification = 2
 # ["foo", "bar", "baz"].index("bar")
   for line in lines:
     classes.append(line.rsplit()[-1])
@@ -130,11 +131,15 @@ def tokenize_corpus(path, train=True):
     # Create a "tokenized array"
     # set tokens equal to array
 
+    # TESTING PART OF SPEECH (WORKED POORLY)
     # dummyTokens = nltk.pos_tag(tokens)
     # tokens = []
     # for i in range(0, len(dummyTokens)):
     #   word, partOfSpeech = dummyTokens[i]
-    #   if not "NN" in partOfSpeech:
+    #   if "JJ" in partOfSpeech:
+    #     for i in range(0, amplification+1):
+    #       tokens.append(word)
+    #   else:
     #     tokens.append(word)
 
     # get the negation of the word afterward
@@ -152,11 +157,11 @@ def tokenize_corpus(path, train=True):
         tokenBigrams.append(phrase)
 
 
-    #Create Tirgrams
-    for i in range(0, len(tokens)):
-      if (i < len(tokens) - 3):
-        phrase = tokens[i] + tokens[i+1] + tokens[i+3]
-        tokenBigrams.append(phrase)
+    #Create Trigrams
+    # for i in range(0, len(tokens)):
+    #   if (i < len(tokens) - 3):
+    #     phrase = tokens[i] + tokens[i+1] + tokens[i+3]
+    #     tokenBigrams.append(phrase)
 
 
     allWords = allWords + tokens
@@ -168,7 +173,13 @@ def tokenize_corpus(path, train=True):
         nWords[t] = 1
      for t in tokens: 
          try:
-             words[t] = words[t]+1
+             text = [t]
+             parts = nltk.pos_tag(text)
+             word, partOfSpeech = parts[0]
+             if "JJ" in partOfSpeech:
+              words[t] = words[t] + amplification
+             else:
+              words[t] = words[t]+1
          except:
              words[t] = 1
      try:

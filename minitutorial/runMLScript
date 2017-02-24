@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-for ((i = 1; i <= 2; i++)); do
+for ((i = 2; i <= 2; i++)); do
 	for ((j = 1; j <= 1; j++)); do
 	    echo $i
 	    file="out_vocab_$i.txt"
