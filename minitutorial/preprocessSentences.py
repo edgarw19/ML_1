@@ -1,5 +1,7 @@
 import nltk, re, pprint
 from nltk import word_tokenize
+from nltk.sentiment import SentimentAnalyzer
+from nltk.sentiment import util
 from nltk.corpus import stopwords
 from os import listdir
 from os.path import isfile, isdir, join
@@ -15,8 +17,45 @@ import os
 import csv
 
 
-chars = ['{','}','#','%','&','\(','\)','\[','\]','<','>',',', '!', '.', ';', 
-'?', '*', '\\', '\/', '~', '_','|','=','+','^',':','\"','\'','@','-']
+chars = ['{','}','#','%','&','\(','\)','\[','\]','<','>',',', '.', ';', 
+'?', '*', '\\', '\/', '~', '|', '_', '=','+','^',':','\"','\'','@','-']
+def numToWords(num,join=True):
+    '''words = {} convert an integer number into words'''
+    units = ['','one','two','three','four','five','six','seven','eight','nine']
+    teens = ['','eleven','twelve','thirteen','fourteen','fifteen','sixteen', \
+             'seventeen','eighteen','nineteen']
+    tens = ['','ten','twenty','thirty','forty','fifty','sixty','seventy', \
+            'eighty','ninety']
+    thousands = ['','thousand','million','billion','trillion','quadrillion', \
+                 'quintillion','sextillion','septillion','octillion', \
+                 'nonillion','decillion','undecillion','duodecillion', \
+                 'tredecillion','quattuordecillion','sexdecillion', \
+                 'septendecillion','octodecillion','novemdecillion', \
+                 'vigintillion']
+    words = []
+    if num==0: words.append('zero')
+    else:
+        numStr = '%d'%num
+        numStrLen = len(numStr)
+        groups = (numStrLen+2)/3
+        numStr = numStr.zfill(groups*3)
+        for i in range(0,groups*3,3):
+            h,t,u = int(numStr[i]),int(numStr[i+1]),int(numStr[i+2])
+            g = groups-(i/3+1)
+            if h>=1:
+                words.append(units[h])
+                words.append('hundred')
+            if t>1:
+                words.append(tens[t])
+                if u>=1: words.append(units[u])
+            elif t==1:
+                if u>=1: words.append(teens[u])
+                else: words.append(tens[t])
+            else:
+                if u>=1: words.append(units[u])
+            if (g>=1) and ((h+t+u)>0): words.append(thousands[g]+',')
+    if join: return ' '.join(words)
+    return words
 
 def stem(word):
    regexp = r'^(.*?)(ing|ly|ed|ious|ies|ive|es|s|ment)?$'
@@ -55,36 +94,75 @@ def tokenize_corpus(path, train=True):
   # Need to also create a massive doc of all the bigrams
   porter = nltk.PorterStemmer() # also lancaster stemmer
   wnl = nltk.WordNetLemmatizer()
-  stopWords = stopwords.words("english")
-  print(stopWords)
+  sentimentAnalyzer = SentimentAnalyzer()
+  numberReviews = ["one", "two", "three", "four", "five"]
+  numbers = ["1", "2", "3", "4", "5"]
+  stopWords = [u'i', u'me', u'my', u'myself', u'our', u'ours', u'ourselves', u'you', u'your', u'yours', u'yourself', u'yourselves', u'he', u'him', u'his', u'himself', u'she', u'her', u'hers', u'herself', u'it', u'its', u'itself', u'they', u'them', u'their', u'theirs', u'themselves', u'what', u'which', u'who', u'whom', u'this', u'that', u'these', u'those', u'am', u'is', u'are', u'was', u'were', u'been', u'being', u'have', u'has', u'had', u'having', u'do', u'does', u'did', u'doing', u'a', u'an', u'the', u'and', u'but', u'if', u'or', u'because', u'as', u'until', u'while', u'of', u'at', u'by', u'for', u'with', u'about', u'against', u'between', u'into', u'through', u'during', u'before', u'after', u'above', u'below', u'to', u'from', u'up', u'down', u'in', u'out', u'on', u'off', u'over', u'under', u'again', u'further', u'then', u'once', u'here', u'there', u'when', u'where', u'why', u'how', u'all', u'any', u'both', u'each', u'few', u'more', u'most', u'other', u'some', u'such', u'only', u'own', u'same', u'so', u'than', u'too', u'very', u's', u't', u'can', u'will', u'just', u'don', u'should', u'now', u'd', u'll', u'm', u'o', u're', u've', u'y']
+  negatives = [ u'ain', u'aren', u'couldn', u'didn', u'doesn', u'hadn', u'hasn', u'haven', u'isn', u'ma', u'mightn', u'mustn', u'needn', u'shan', u'shouldn', u'wasn', u'weren', u'won', u'wouldn', u'no', u'nor', u'not']
+  print(len(stopWords))
   print("ABOVE IS STOPWORDS")
   classes = []
   samples = []
   docs = []
   allWords = []
+  sentenceLengths = []
   if train == True:
     words = {}
     nWords = {}
   f = open(path, 'r')
   lines = f.readlines()
   i = 0
-
+# ["foo", "bar", "baz"].index("bar")
   for line in lines:
     classes.append(line.rsplit()[-1])
     samples.append(line.rsplit()[0])
     raw = line.decode('latin1')
+    # print("RAW 1", raw)
     raw = ' '.join(raw.rsplit()[1:-1])
-    # remove noisy characters; tokenize
+    # print("RAW 1.5", raw)
+    # # remove noisy characters; tokenize
+    # print("RAW 3", raw)
+    raw = word_tokenize(raw)
+    rawCopy = raw
+    raw = ""
+    # print("RAW COPY", rawCopy)
+    for x in rawCopy:
+      raw += x + " "
+    # print("THE TOKENIZED VERSION", raw)
+    raw = util.mark_negation(raw.split(), True)
+    rawCopy = raw
+    raw = ""
+    for x in rawCopy:
+      raw += x + " "
     raw = re.sub('[%s]' % ''.join(chars), ' ', raw)
+    # print("NEGATATED", raw)
+    # print("DONE NEGATE", raw)
+    # print("RAW FIXED", raw)
     tokens = word_tokenize(raw)
+    # print("RAW 4", tokens)
     tokens = [w.lower() for w in tokens]
     tokens = [w for w in tokens if w not in stopWords]
     tokens = [wnl.lemmatize(t) for t in tokens]
     tokens = [porter.stem(t) for t in tokens] 
+    # get the negation of the word afterward
+    # for i in range(0, len(tokens)):
+    #   if (tokens[i] in negatives):
+    #     if negatives.index(tokens[i]) > -1 and i < len(tokens) - 2:
+    #       tokens[i+1] = tokens[i] + tokens[i+1]
     tokenBigrams = []
+    tokenTrigrams = []
+
+    #Create bigrams
     for i in range(0, len(tokens)):
       if (i < len(tokens)-2):
         phrase = tokens[i] + tokens[i+1]
+        tokenBigrams.append(phrase)
+
+
+    #Create Tirgrams
+    for i in range(0, len(tokens)):
+      if (i < len(tokens) - 3):
+        phrase = tokens[i] + tokens[i+1] + tokens[i+3]
         tokenBigrams.append(phrase)
 
 
@@ -100,6 +178,11 @@ def tokenize_corpus(path, train=True):
              words[t] = words[t]+1
          except:
              words[t] = 1
+     try:
+      nWords[("number" + numToWords(len(tokens)))] = nWords[("number" + numToWords(len(tokens)))] + 1
+     except:
+      nWords[("number" + numToWords(len(tokens)))] = 1
+    
     docs.append(tokens)
   # finder = BigramCollocationFinder.from_words(allWords)
   # finder.apply_freq_filter(3)
@@ -189,7 +272,7 @@ def main(argv):
     # print("LEN RIGHT AFTER", len(vocab))
     bigramVocab = wordcount_filter(nWords, bigramCount)
 
-    vocab = union(vocab, bigramVocab)
+    vocab = sorted(union(vocab, bigramVocab))
     print("VOCAB LENGTH", len(vocab))
     # Write new vocab file
     vocabf = outputf+"_vocab_"+str(word_count_threshold)+".txt"

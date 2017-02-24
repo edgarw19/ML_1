@@ -96,6 +96,9 @@ def main(argv):
 
 	test_predicted = clf.predict(test_bag)
 	print(metrics.classification_report(test_targets, test_predicted, target_names=target_names, digits=4))
+	for i in range(0, len(test_predicted)):
+		if (test_predicted[i] != test_targets[i]):
+			print(sentences[i])
 
 
 if __name__ == "__main__":
