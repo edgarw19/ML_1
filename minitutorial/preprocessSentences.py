@@ -122,6 +122,16 @@ def tokenize_corpus(path, train=True):
     raw = ' '.join(raw.rsplit()[1:-1])
     raw = re.sub('[%s]' % ''.join(chars), ' ', raw)
     tokens = word_tokenize(raw)
+    # TESTING PART OF SPEECH (WORKED POORLY)
+    dummyTokens = nltk.pos_tag(tokens)
+    
+    if (len(dummyTokens) < 4):
+      tokens = []
+      for i in range(0, len(dummyTokens)):
+        word, partOfSpeech = dummyTokens[i]
+        if "NN" not in partOfSpeech:
+          tokens.append(word)
+          
     tokens = [w.lower() for w in tokens]
     tokens = [w for w in tokens if w not in stopWords]
     tokens = [wnl.lemmatize(t) for t in tokens]
@@ -131,16 +141,6 @@ def tokenize_corpus(path, train=True):
     # Create a "tokenized array"
     # set tokens equal to array
 
-    # TESTING PART OF SPEECH (WORKED POORLY)
-    # dummyTokens = nltk.pos_tag(tokens)
-    # tokens = []
-    # for i in range(0, len(dummyTokens)):
-    #   word, partOfSpeech = dummyTokens[i]
-    #   if "JJ" in partOfSpeech:
-    #     for i in range(0, amplification+1):
-    #       tokens.append(word)
-    #   else:
-    #     tokens.append(word)
 
     # get the negation of the word afterward
     for i in range(0, len(tokens)):
