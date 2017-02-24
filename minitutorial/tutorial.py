@@ -1,6 +1,8 @@
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.svm import LinearSVC
 from sklearn import metrics
+from sklearn.feature_selection import SelectKBest
+from sklearn.feature_selection import chi2
 import numpy
 import re
 import sys
@@ -82,23 +84,27 @@ def main(argv):
 				one_bag.append(int(x))
 			test_bag.append(one_bag)
 
+	target_names = ["Positive", "Negative"]
+	X_new = SelectKBest(score_func=chi2, k=710).fit(bag, targets)
 	clf = MultinomialNB()
-	clf.fit(bag, targets)
-	predicted = clf.predict(bag)
+	clf.fit(X_new.transform(bag), targets)
+	predicted = clf.predict(X_new.transform(bag))
 	for i in range(0, len(predicted)):
 		if (predicted[i] != targets[i]):
 			print(sentences[i])
-	target_names = ["Positive", "Negative"]
-	# print("RESULTS ON TRAINING DATA")
-	print(metrics.classification_report(targets, predicted, target_names=target_names, digits=4))
-	# print()
-	# print("RESULTS ON TEST DATA")
-	test_predicted = clf.predict(test_bag)
 
 	
-	for i in range(0, len(test_predicted)):
-		if (test_predicted[i] != test_targets[i]):
-			print(sentences[i])
+	# print()
+	
+	test_predicted = clf.predict(X_new.transform(test_bag))
+
+	
+	# for i in range(0, len(test_predicted)):
+	# 	if (test_predicted[i] != test_targets[i]):
+	# 		print(sentences[i])
+	print("RESULTS ON TRAINING DATA")
+	print(metrics.classification_report(targets, predicted, target_names=target_names, digits=4))
+	print("RESULTS ON TEST DATA")
 	print(metrics.classification_report(test_targets, test_predicted, target_names=target_names, digits=4))
 
 
