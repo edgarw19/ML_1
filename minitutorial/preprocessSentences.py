@@ -119,36 +119,29 @@ def tokenize_corpus(path, train=True):
     raw = line.decode('latin1')
     # print("RAW 1", raw)
     raw = ' '.join(raw.rsplit()[1:-1])
-    # print("RAW 1.5", raw)
-    # # remove noisy characters; tokenize
-    # print("RAW 3", raw)
-    raw = word_tokenize(raw)
-    rawCopy = raw
-    raw = ""
-    # print("RAW COPY", rawCopy)
-    for x in rawCopy:
-      raw += x + " "
-    # print("THE TOKENIZED VERSION", raw)
-    raw = util.mark_negation(raw.split(), True)
-    rawCopy = raw
-    raw = ""
-    for x in rawCopy:
-      raw += x + " "
     raw = re.sub('[%s]' % ''.join(chars), ' ', raw)
-    # print("NEGATATED", raw)
-    # print("DONE NEGATE", raw)
-    # print("RAW FIXED", raw)
     tokens = word_tokenize(raw)
-    # print("RAW 4", tokens)
     tokens = [w.lower() for w in tokens]
     tokens = [w for w in tokens if w not in stopWords]
     tokens = [wnl.lemmatize(t) for t in tokens]
     tokens = [porter.stem(t) for t in tokens] 
+    # Create dummy array to manipulate
+    # Extract everything other than nouns from the dummy array
+    # Create a "tokenized array"
+    # set tokens equal to array
+
+    # dummyTokens = nltk.pos_tag(tokens)
+    # tokens = []
+    # for i in range(0, len(dummyTokens)):
+    #   word, partOfSpeech = dummyTokens[i]
+    #   if not "NN" in partOfSpeech:
+    #     tokens.append(word)
+
     # get the negation of the word afterward
-    # for i in range(0, len(tokens)):
-    #   if (tokens[i] in negatives):
-    #     if negatives.index(tokens[i]) > -1 and i < len(tokens) - 2:
-    #       tokens[i+1] = tokens[i] + tokens[i+1]
+    for i in range(0, len(tokens)):
+      if (tokens[i] in negatives):
+        if negatives.index(tokens[i]) > -1 and i < len(tokens) - 2:
+          tokens[i+1] = tokens[i] + tokens[i+1]
     tokenBigrams = []
     tokenTrigrams = []
 
